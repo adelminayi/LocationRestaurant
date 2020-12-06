@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}رستوران ها{% endblock %}
+{% load static %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% for restaurant in restaurants %}
+                <div class="col-sm-3" style="padding: 20px">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="{% static 'download.jpeg' %}" alt="My image" style="width: 200px">
+                            <h5 class="card-title">{{ restaurant.name }}</h5>
+                            <p class="card-text">{{ restaurant.service }} m</p>
+                            <a href="{{ restaurant.get_absolute_url }}" class="btn btn-primary">مشاهده رستوران</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}
